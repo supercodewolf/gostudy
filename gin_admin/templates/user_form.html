@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>{{if .user}}编辑用户{{else}}添加用户{{end}}</title>
+</head>
+<body>
+<h2>{{if .user}}编辑用户{{else}}添加用户{{end}}</h2>
+<form action="{{if .user}}/user/update{{else}}/user/add{{end}}" method="post">
+    {{if .user}}
+    <input type="hidden" name="id" value="{{.user.ID}}">
+    {{end}}
+    用户名：<input type="text" name="username" value="{{if .user}}{{.user.Username}}{{end}}"><br>
+    密码：<input type="password" name="password"><br>
+    <button type="submit">提交</button>
+</form>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>用户管理</title>
+</head>
+<body>
+<h2>用户列表</h2>
+<a href="/user/add">添加用户</a>
+<table border="1">
+    <tr>
+        <th>ID</th>
+        <th>用户名</th>
+        <th>操作</th>
+    </tr>
+    {{range .users}}
+    <tr>
+        <td>{{.ID}}</td>
+        <td>{{.Username}}</td>
+        <td>
+            <a href="/user/edit?id={{.ID}}">修改</a>
+            <a href="/user/delete?id={{.ID}}" onclick="return confirm('确定删除？')">删除</a>
+        </td>
+    </tr>
+    {{end}}
+</table>
+</body>
+</html>
